@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <script src="../pokemiku.js"></script>
+    <script src="./sample.utils.js"></script>
+    <script src="./sample.js"></script>
+    <title>PokeMiku.js sample</title>
+</head>
+<body>
+<h1>PokeMiku.js sample</h1>
+
+<h2>Set lyric data</h2>
+<form id="send_lyric" method="POST">
+    <fieldset>
+        <div>
+            <label for="lyric">Lyric:</label>
+            <input id="lyric" name="lyric" value="" size="100" maxlength="250">
+            <input type="submit" value="send">
+        </div>
+        <div>
+            <label>
+                <input type="checkbox" id="optimize_n" name="optimize n"> Optimize "ん" ("N\" and "m") (KANA or ROMAN mode only)
+            </label>
+        </div>
+        <div>
+            <label for="chara">Lyric type</label>
+            <select id="chara" name="chara">
+                <option value="0">KANA</option>
+                <option value="1">ROMAN</option>
+                <option value="2">XSAMPA</option>
+                <option value="3">KANA, ROMAN</option>
+                <option value="4">KANA, ROMAN, XSAMPA</option>
+                <option value="5">KANA, XSAMPA, ROMAN</option>
+            </select>
+        </div>
+        <hr>
+        <div>
+            <label for="lyrics">Samples:</label>
+            <select id="lyrics" name="lyrics">
+                <option></option>
+                <option>sakura sakura yayoino sorawa miwatasukagiri</option>
+                <option>あんたがたどこさ ひごさ ひごどこさ くまもとさ くまもとどこさ せんばさ</option>
+                <option>とりゃんせ とりゃんせ ここわどこのほそみちじゃ てんじんさまのほそみちじゃ</option>
+                <option>shi si N\\ N m J n shiN\\saibasi namba tennoji shiNkaichi shiJnishiwaki</option>
+            </select>
+        </div>
+    </fieldset>
+</form>
+<hr>
+<h2>Send MIDI message</h2>
+<h3>note on/off</h3>
+<form id="note_on_off">
+    <div>
+        <label for="note">Note:</label>
+        <input id="note" name="note" type="number" min="0" max="127" value="72">
+    </div>
+    <div>
+        <label for="velocity">Velocity:</label>
+        <input id="velocity" name="velocity" type="range" min="0" max="127" value="63">
+    </div>
+    <input type="submit" class="note_on_off" name="noteon" value="note on">
+    <input type="submit" class="note_on_off" name="noteoff" value="note off">
+</form>
+<h3>Control change</h3>
+<form id="control_change">
+    <div>
+        <div>
+            <label for="mod_level">Note:</label>
+            <input id="mod_level" type="range" min="0" max="127" value="63">
+        </div>
+        <input type="button" value="Modulation" id="control_modulation">
+    </div>
+    <div>
+        <input type="button" value="All Sound Off" id="control_all_sound_off">
+    </div>
+</form>
+<hr>
+<div id="status">
+    <div>This is status area.</div>
+</div>
+</body>
+</html>
